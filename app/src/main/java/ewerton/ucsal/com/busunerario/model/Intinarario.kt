@@ -1,8 +1,8 @@
 package ewerton.ucsal.com.busunerario.model
 
-class Roteiro {
+class Intinarario {
     companion object {
-        val paradas: Map<Int, String> = hashMapOf(
+        private val paradas: Map<Int, String> = hashMapOf(
                 1 to "Av. Paralela (sentido aeroporto) - Ponto do estadio de pituaçu",
                 2 to "Av. Pinto de Aguiar (sentido Paralela) - Atras do primeiro ponto de onibus",
                 3 to "Av. Pinto de Aguiar (sentido Paralela) - Ponto do condominio Green",
@@ -16,6 +16,34 @@ class Roteiro {
                 11 to "Av. Paralela (sentido centro) - ponto colegio villa",
                 12 to "Av. Paralela (sentido centro) - ponto entrada Flamboyant",
                 13 to "Av. Paralela (sentido centro) - Condominio Brisas")
+        val horarioSegSex: Map<String,List<String>> = mapOf(
+                "6:30" to Intinarario.ROTEIRO1(),
+                "6:45" to Intinarario.ROTEIRO1(),
+                "7:00" to Intinarario.ROTEIRO1(),
+                "7:20" to Intinarario.ROTEIRO1(),
+                "7:40" to Intinarario.ROTEIRO1(),
+                "9:30" to Intinarario.ROTEIRO2(),
+                "10:00" to Intinarario.ROTEIRO2(),
+                "10:30" to Intinarario.ROTEIRO5(),
+                "11:15" to Intinarario.ROTEIRO2(),
+                "11:45" to Intinarario.ROTEIRO2(),
+                "12:15" to Intinarario.ROTEIRO2(),
+                "12:45" to Intinarario.ROTEIRO5(),
+                "13:30" to Intinarario.ROTEIRO4(),
+                "17:10" to Intinarario.ROTEIRO1(),
+                "18:20" to Intinarario.ROTEIRO1(),
+                "18:40" to Intinarario.ROTEIRO1(),
+                "20:30" to Intinarario.ROTEIRO3(),
+                "20:55" to Intinarario.ROTEIRO3(),
+                "21:20" to Intinarario.ROTEIRO3(),
+                "21:40" to Intinarario.ROTEIRO5(),
+                "22:15" to Intinarario.ROTEIRO4())
+        val horarioSab: Map<String,List<String>> = mapOf(
+                "6:50" to Intinarario.ROTEIRO1(),
+                "8:25" to Intinarario.ROTEIRO2(),
+                "9:50" to Intinarario.ROTEIRO4(),
+                "11:30" to Intinarario.ROTEIRO2(),
+                "12:30" to Intinarario.ROTEIRO4())
 
         fun ROTEIRO1() : List<String>{
             return listOf(paradas[1]!!)
