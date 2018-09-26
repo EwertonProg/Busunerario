@@ -2,43 +2,45 @@ package ewerton.ucsal.com.busunerario.model
 
 class Intinarario {
     companion object {
-        private val paradas: Map<Int, String> = hashMapOf(
-                1 to "Av. Paralela (sentido aeroporto) - Ponto do estadio de pituaçu",
-                2 to "Av. Pinto de Aguiar (sentido Paralela) - Atras do primeiro ponto de onibus",
-                3 to "Av. Pinto de Aguiar (sentido Paralela) - Ponto do condominio Green",
-                4 to "Terminal Pituaçu - 1  andar, Plataforma E, 17.",
-                5 to "Av. Paralela (sentido centro) - Ponto do estadio de pituaçu",
-                6 to "Av. Paralela (sentido centro) - Ponto Extra",
-                7 to "Av. Paralela (sentido aeroporto) - Ponto Extra",
-                8 to "Av. Pinto de Aguiar (sentido orla) - Ponto do condominio Green",
-                9 to "Av. Paralela (sentido aeroporto) - ponto do Wall street",
-                10 to "Av. Paralela (sentido aeroporto) - ponto do Menor Preço",
-                11 to "Av. Paralela (sentido centro) - ponto colegio villa",
-                12 to "Av. Paralela (sentido centro) - ponto entrada Flamboyant",
-                13 to "Av. Paralela (sentido centro) - Condominio Brisas")
-        val horarioSegSex: Map<String,List<String>> = mapOf(
-                "6:30" to Intinarario.ROTEIRO1(),
-                "6:45" to Intinarario.ROTEIRO1(),
-                "7:00" to Intinarario.ROTEIRO1(),
-                "7:20" to Intinarario.ROTEIRO1(),
-                "7:40" to Intinarario.ROTEIRO1(),
-                "9:30" to Intinarario.ROTEIRO2(),
-                "10:00" to Intinarario.ROTEIRO2(),
-                "10:30" to Intinarario.ROTEIRO5(),
-                "11:15" to Intinarario.ROTEIRO2(),
-                "11:45" to Intinarario.ROTEIRO2(),
-                "12:15" to Intinarario.ROTEIRO2(),
-                "12:45" to Intinarario.ROTEIRO5(),
-                "13:30" to Intinarario.ROTEIRO4(),
-                "17:10" to Intinarario.ROTEIRO1(),
-                "18:20" to Intinarario.ROTEIRO1(),
-                "18:40" to Intinarario.ROTEIRO1(),
-                "20:30" to Intinarario.ROTEIRO3(),
-                "20:55" to Intinarario.ROTEIRO3(),
-                "21:20" to Intinarario.ROTEIRO3(),
-                "21:40" to Intinarario.ROTEIRO5(),
-                "22:15" to Intinarario.ROTEIRO4())
-        val horarioSab: Map<String,List<String>> = mapOf(
+        private var paradas: List<String> = listOf(
+                "Av. Paralela (sentido aeroporto) - Ponto do estadio de pituaçu",
+                "Av. Pinto de Aguiar (sentido Paralela) - Atras do primeiro ponto de onibus",
+                "Av. Pinto de Aguiar (sentido Paralela) - Ponto do condominio Green",
+                "Terminal Pituaçu - 1  andar, Plataforma E, 17.",
+                "Av. Paralela (sentido centro) - Ponto do estadio de pituaçu",
+                "Av. Paralela (sentido centro) - Ponto Extra",
+                "Av. Paralela (sentido aeroporto) - Ponto Extra",
+                "Av. Pinto de Aguiar (sentido orla) - Ponto do condominio Green",
+                "Av. Paralela (sentido aeroporto) - ponto do Wall street",
+                "Av. Paralela (sentido aeroporto) - ponto do Menor Preço",
+                "Av. Paralela (sentido centro) - ponto colegio villa",
+                "Av. Paralela (sentido centro) - ponto entrada Flamboyant",
+                "Av. Paralela (sentido centro) - Condominio Brisas")
+        var horarios: List<String> = listOf("6:30","6:45","7:00","7:20","7:40", "9:30", "10:00","10:30","11:15","11:45","12:15",
+                "12:45","13:30","17:10","18:20","18:40","20:30","20:55","21:20","21:40","22:15")
+        var intinerarioSegSex: Map<String,List<String>> = mapOf(
+                horarios[1] to Intinarario.ROTEIRO1(),
+                horarios[2] to Intinarario.ROTEIRO1(),
+                horarios[3] to Intinarario.ROTEIRO1(),
+                horarios[4] to Intinarario.ROTEIRO1(),
+                horarios[5] to Intinarario.ROTEIRO1(),
+                horarios[6] to Intinarario.ROTEIRO2(),
+                horarios[7] to Intinarario.ROTEIRO2(),
+                horarios[8] to Intinarario.ROTEIRO5(),
+                horarios[9] to Intinarario.ROTEIRO2(),
+                horarios[10] to Intinarario.ROTEIRO2(),
+                horarios[11] to Intinarario.ROTEIRO2(),
+                horarios[12] to Intinarario.ROTEIRO5(),
+                horarios[13] to Intinarario.ROTEIRO4(),
+                horarios[14] to Intinarario.ROTEIRO1(),
+                horarios[15] to Intinarario.ROTEIRO1(),
+                horarios[16] to Intinarario.ROTEIRO1(),
+                horarios[17] to Intinarario.ROTEIRO3(),
+                horarios[18] to Intinarario.ROTEIRO3(),
+                horarios[19] to Intinarario.ROTEIRO3(),
+                horarios[20] to Intinarario.ROTEIRO5(),
+                horarios[21] to Intinarario.ROTEIRO4())
+        var horarioSab: Map<String,List<String>> = mapOf(
                 "6:50" to Intinarario.ROTEIRO1(),
                 "8:25" to Intinarario.ROTEIRO2(),
                 "9:50" to Intinarario.ROTEIRO4(),
@@ -46,24 +48,24 @@ class Intinarario {
                 "12:30" to Intinarario.ROTEIRO4())
 
         fun ROTEIRO1() : List<String>{
-            return listOf(paradas[1]!!)
+            return listOf(paradas[1])
         }
 
         fun ROTEIRO2() : List<String>{
-            return listOf(paradas[2]!!, paradas[3]!!, paradas[4]!!)
+            return listOf(paradas[2], paradas[3], paradas[4])
         }
 
         fun ROTEIRO3() : List<String>{
-            return listOf(paradas[3]!!, paradas[2]!!, paradas[1]!!)
+            return listOf(paradas[3], paradas[2], paradas[1])
         }
 
         fun ROTEIRO4() : List<String>{
-            return listOf(paradas[3]!!, paradas[5]!!, paradas[6]!!, paradas[7]!!, paradas[1]!!)
+            return listOf(paradas[3], paradas[5], paradas[6], paradas[7], paradas[1])
         }
 
         fun ROTEIRO5() : List<String>{
-            return listOf(paradas[8]!!, paradas[2]!!, paradas[9]!!, paradas[10]!!, paradas[11]!!,
-                    paradas[12]!!, paradas[13]!!, paradas[5]!!, paradas[6]!!, paradas[7]!!, paradas[1]!!)
+            return listOf(paradas[8], paradas[2], paradas[9], paradas[10], paradas[11],
+                    paradas[12], paradas[13], paradas[5], paradas[6], paradas[7], paradas[1])
         }
     }
 }
