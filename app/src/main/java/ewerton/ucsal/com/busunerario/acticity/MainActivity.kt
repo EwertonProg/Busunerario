@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.widget.Toast
 import ewerton.ucsal.com.busunerario.R
 import ewerton.ucsal.com.busunerario.model.Intinarario
 import ewerton.ucsal.com.busunerario.util.MAdapter
@@ -23,9 +24,12 @@ class MainActivity : AppCompatActivity() {
 
         rv = findViewById(R.id.recycler_horario)
         vm = LinearLayoutManager(this)
-        va = MAdapter(horarios, this)
+        va = MAdapter(horarios, this){ string -> Toast.makeText(this,string,Toast.LENGTH_SHORT).show()}
 
         rv.layoutManager = vm
         rv.adapter = va
+
     }
+
+
 }
