@@ -15,7 +15,6 @@ class ActivityRoteiro : AppCompatActivity() {
 
     lateinit var rv: RecyclerView
     lateinit var ra: RecyclerView.Adapter<*>
-    lateinit var rota: List<String>
     lateinit var lm: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,11 +22,11 @@ class ActivityRoteiro : AppCompatActivity() {
         setContentView(R.layout.activity_roteiro)
         val it = intent
         val hora = it.getStringExtra("hora")
-        rota = Intinarario.intinerarioSegSex[hora]!!
+        val rota = Intinarario.getRoteiro(hora)
 
         rv = findViewById(R.id.recycler_ponto)
         lm = LinearLayoutManager(this)
-        ra = MAdapter(contexto = this, layout = R.layout.ponto_item, lista = rota) { string -> Toast.makeText(this, "string", Toast.LENGTH_SHORT).show() }
+        ra = MAdapter(contexto = this, layout = R.layout.ponto_item, lista = rota) { Toast.makeText(this, hora, Toast.LENGTH_SHORT).show() }
 
         rv.layoutManager = lm
         rv.adapter = ra

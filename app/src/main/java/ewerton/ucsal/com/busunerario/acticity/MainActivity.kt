@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.widget.TextView
 import android.widget.Toast
 import ewerton.ucsal.com.busunerario.R
 import ewerton.ucsal.com.busunerario.model.Intinarario
@@ -23,12 +24,11 @@ class MainActivity : AppCompatActivity() {
 
         val i = Intent(this, ActivityRoteiro::class.java)
 
-
         horarios = Intinarario.horarios
 
         rv = findViewById(R.id.recycler_horario)
         vm = LinearLayoutManager(this)
-        va = MAdapter(horarios, this, R.layout.horario_item)
+        va = MAdapter( horarios, this, R.layout.horario_item)
         { string -> i.putExtra("hora", string); startActivity(i) }
 
 
