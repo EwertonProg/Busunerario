@@ -18,7 +18,7 @@ class Intinarario {
                 "Av. Paralela (sentido centro) - Condominio Brisas")
         var horarios: List<String> = listOf("6:30","6:45","7:00","7:20","7:40", "9:30", "10:00","10:30","11:15","11:45","12:15",
                 "12:45","13:30","17:10","18:20","18:40","20:30","20:55","21:20","21:40","22:15")
-        var intinerarioSegSex: Map<String,List<String>> = mapOf(
+        val intinerarioSegSex: HashMap<String,List<String>> = hashMapOf(
                 horarios[0] to Intinarario.ROTEIRO1(),
                 horarios[1] to Intinarario.ROTEIRO1(),
                 horarios[2] to Intinarario.ROTEIRO1(),
