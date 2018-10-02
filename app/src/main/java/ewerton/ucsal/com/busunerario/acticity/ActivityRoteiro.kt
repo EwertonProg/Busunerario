@@ -1,15 +1,12 @@
 package ewerton.ucsal.com.busunerario.acticity
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.widget.TextView
-import android.widget.Toast
 import ewerton.ucsal.com.busunerario.R
 import ewerton.ucsal.com.busunerario.model.Intinarario
-import ewerton.ucsal.com.busunerario.util.MAdapter
+import ewerton.ucsal.com.busunerario.util.AdapterRoteiro
 
 class ActivityRoteiro : AppCompatActivity() {
 
@@ -26,7 +23,7 @@ class ActivityRoteiro : AppCompatActivity() {
 
         rv = findViewById(R.id.recycler_ponto)
         lm = LinearLayoutManager(this)
-        ra = MAdapter(contexto = this, layout = R.layout.ponto_item, lista = rota) { Toast.makeText(this, hora, Toast.LENGTH_SHORT).show() }
+        ra = AdapterRoteiro(contexto = this, lista = rota)
 
         rv.layoutManager = lm
         rv.adapter = ra

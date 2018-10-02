@@ -14,7 +14,8 @@
             android:textSize="45sp"
             android:text="dadsdad"
             android:textAlignment="center"
-            android:background="#C0C0C0"
-            android:textColor="#000"/>
+            android:background="@android:color/holo_orange_dark"
+            android:paddingBottom="1dp"
+            android:textColor="@android:color/black"/>
 
 </LinearLayout>
