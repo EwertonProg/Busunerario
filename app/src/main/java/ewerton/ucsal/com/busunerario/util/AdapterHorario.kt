@@ -20,11 +20,8 @@ class AdapterHorario(val lista: List<String>, val contexto: Context, val layout:
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): AdapterHorario.HolderHora {
-
         val view: View = LayoutInflater.from(contexto).inflate(layout, p0, false)
         return HolderHora(view)
-
-
     }
 
     override fun getItemCount(): Int {
