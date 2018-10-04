@@ -17,6 +17,5 @@ class Parada(val coordenada: LatLng, val descricao: String) {
         val parada11 = Parada(LatLng(-12.93675, -38.40198), "Av. Paralela (sentido centro) - ponto colegio villa")
         val parada12 = Parada(LatLng(-12.93769, -38.40802), "Av. Paralela (sentido centro) - ponto entrada Flamboyant")
         val parada13 = Parada(LatLng(-12.93835, -38.41119), "Av. Paralela (sentido centro) - Condominio Brisas")
-
     }
 }

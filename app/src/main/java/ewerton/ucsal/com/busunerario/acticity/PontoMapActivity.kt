@@ -26,7 +26,6 @@ class PontoMapActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val it = intent
         roteiro = it.getParcelableExtra("roteiro")
-
     }
 
     /**

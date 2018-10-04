@@ -9,7 +9,7 @@ import ewerton.ucsal.com.busunerario.R
 import ewerton.ucsal.com.busunerario.model.Parada
 import kotlinx.android.synthetic.main.ponto_item.view.*
 
-class AdapterRoteiro(val lista: List<Parada>, val contexto: Context,  val listner: (Parada) -> Unit) : RecyclerView.Adapter<AdapterRoteiro.HolderRoteiro>() {
+class AdapterRoteiro(val roteiro: List<Parada>, val contexto: Context, val listner: (Parada) -> Unit) : RecyclerView.Adapter<AdapterRoteiro.HolderRoteiro>() {
     inner class HolderRoteiro(itemview: View) : RecyclerView.ViewHolder(itemview) {
         val variavel = itemview.tvPonto
 
@@ -26,11 +26,11 @@ class AdapterRoteiro(val lista: List<Parada>, val contexto: Context,  val listne
     }
 
     override fun getItemCount(): Int {
-        return lista.size
+        return roteiro.size
     }
 
     override fun onBindViewHolder(p0: HolderRoteiro, p1: Int) {
-        p0.variavel.text = lista[p1].descricao
-        p0.onClick(lista[p1])
+        p0.variavel.text = roteiro[p1].descricao
+        p0.onClick(roteiro[p1])
     }
 }

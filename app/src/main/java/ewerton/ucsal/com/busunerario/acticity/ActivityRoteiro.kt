@@ -5,30 +5,52 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.MarkerOptions
 import ewerton.ucsal.com.busunerario.R
 import ewerton.ucsal.com.busunerario.model.Intinarario
+import ewerton.ucsal.com.busunerario.model.Parada
 import ewerton.ucsal.com.busunerario.util.AdapterRoteiro
 
-class ActivityRoteiro : AppCompatActivity() {
+class ActivityRoteiro : AppCompatActivity(), OnMapReadyCallback{
     lateinit var rv: RecyclerView
     lateinit var ra: RecyclerView.Adapter<*>
     lateinit var lm: RecyclerView.LayoutManager
+    private lateinit var mMap: GoogleMap
+    lateinit var rota: List<Parada>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_roteiro)
+        val mapFragment = supportFragmentManager
+                .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
 
         val i = Intent(this, PontoMapActivity::class.java)
         val it = intent
         val hora = it.getStringExtra("hora")
-        val rota = Intinarario.intinerarioSegSex[hora]!!
+        rota = Intinarario.intinerarioSegSex[hora]!!
 
         rv = findViewById(R.id.recycler_ponto)
         lm = LinearLayoutManager(this)
-        ra = AdapterRoteiro(contexto = this, lista = rota){roteiro -> i.putExtra("roteiro", roteiro.coordenada); startActivity(i) }
+        ra = AdapterRoteiro(contexto = this, roteiro = rota)
+        {roteiro -> i.putExtra("roteiro", roteiro.coordenada); startActivity(i) }
 
         rv.layoutManager = lm
         rv.adapter = ra
 
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+        for (item in rota){
+        mMap.addMarker(MarkerOptions().position(item.coordenada))}
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(rota[0].coordenada))
+        mMap.setMaxZoomPreference(18.0f)
+        mMap.setMinZoomPreference(12.0f)
+        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID)
     }
 }
