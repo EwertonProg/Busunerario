@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.Toolbar
 import ewerton.ucsal.com.busunerario.R
 import ewerton.ucsal.com.busunerario.model.Intinarario
 import ewerton.ucsal.com.busunerario.util.AdapterHorario
@@ -19,6 +20,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val toolBar = findViewById(R.id.toolBar) as Toolbar?
+        toolBar!!.title = "Dias"
+        setSupportActionBar(toolBar)
 
         val i = Intent(this, ActivityRoteiro::class.java)
 

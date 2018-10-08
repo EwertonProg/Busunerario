@@ -6,19 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".acticity.ActivityRoteiro">
 
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar_dias" />
+
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="201dp"
+        android:layout_height="270dp"
+        map:layout_constraintTop_toBottomOf="@id/include"
         tools:context=".acticity.PontoMapActivity" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_ponto"
         android:layout_width="match_parent"
-        android:layout_height="310dp"
+        android:layout_height="0dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
